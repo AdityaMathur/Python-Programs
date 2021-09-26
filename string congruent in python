@@ -1,0 +1,28 @@
+n = int(input())
+for k in range(0,n):
+    a,b = input().split(" ")
+    def method(a,b):
+
+        a1 = [ord(character) for character in a]
+        a2 = [ord(character) for character in b]
+        n = len(a1)
+        m = len(a2)
+        count = 0
+        if(abs(n-m) >=2):
+            return "false"
+        elif(m==n):
+            for i in range(0,n):
+                if(a1[i] ^ a2[i] != 0):
+                    count += 1
+                    if(count >= 2):
+                        return "false"
+        else:
+            for i in a1:
+                if(i in a2):
+                    a2.remove(i)
+                else:
+                    count += 1
+                    if(count >= 2):
+                        return "false"
+        return "true"
+    print(method(a,b))
